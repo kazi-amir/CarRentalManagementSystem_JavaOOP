@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.carrentalsystem.customerDashController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0" stylesheets="@Dashboard.css">
+         <children>
+            <BorderPane layoutX="71.0" layoutY="57.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="45.0" prefWidth="200.0" styleClass="semi-top-form" stylesheets="@Dashboard.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="30.0" layoutY="-86.0" prefHeight="38.0" prefWidth="1100.0" styleClass="top-form" stylesheets="@Dashboard.css" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Text layoutX="48.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bhromon Bondhu Car Rental - Customer Portal">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="close" layoutX="1051.0" mnemonicParsing="false" onAction="#close" prefHeight="28.0" prefWidth="49.0" styleClass="close" stylesheets="@Dashboard.css">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="CLOSE" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="minimize" alignment="CENTER" contentDisplay="CENTER" layoutX="1002.0" mnemonicParsing="false" onAction="#minimize" prefHeight="28.0" prefWidth="49.0" styleClass="minimize" stylesheets="@Dashboard.css">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="MINUS" />
+                                 </graphic>
+                              </Button>
+                              <FontAwesomeIcon glyphName="CAR" layoutX="17.0" layoutY="26.0" size="1.5em" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="555.0" prefWidth="239.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane prefHeight="555.0" prefWidth="239.0" stylesheets="@Dashboard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon fill="#e8cc32" glyphName="USER" layoutX="82.0" layoutY="112.0" size="100" text="" />
+                              <Label layoutX="78.0" layoutY="135.0" text="Welcome" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="username" alignment="CENTER" layoutX="21.0" layoutY="156.0" prefHeight="30.0" prefWidth="202.0" text="Username" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="100.0" layoutX="121.0" layoutY="197.0" startX="-100.0" />
+                              <Button fx:id="customer_dashboardBtn" layoutY="218.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="240.0" styleClass="nav-btn" stylesheets="@Dashboard.css" text="  Dashboard" textFill="#dadada">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="HOME" size="1.5em" text="" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="customer_rentCarBtn" alignment="TOP_LEFT" layoutY="258.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="240.0" styleClass="nav-btn" stylesheets="@Dashboard.css" text="  Rent A Car">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="CAR" size="1.3em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="customer_signOutBtn" layoutX="15.0" layoutY="595.0" mnemonicParsing="false" onAction="#logOut" prefHeight="40.0" prefWidth="200.0" styleClass="logout-btn" stylesheets="@Dashboard.css" text="Sign Out" textFill="#e8e8e8">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="2em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="customer_rechargeBtn" alignment="TOP_LEFT" layoutY="298.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="240.0" styleClass="nav-btn" stylesheets="@Dashboard.css" text="  Recharge">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="MONEY" size="1.3em" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <styleClass>
+                              <String fx:value="left-form" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="dashboard_form" layoutX="14.0" layoutY="85.0" prefHeight="655.0" prefWidth="861.0" stylesheets="@Dashboard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="170.0" prefWidth="836.0" stylesheets="@Dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="14.0" layoutY="8.0" prefHeight="150.0" prefWidth="425.0" styleClass="nav-form" stylesheets="@Dashboard.css">
+                                       <children>
+                                          <Text fill="WHITE" layoutX="241.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Cars">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="customer_dashAvailableCar" fill="WHITE" layoutX="289.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="121.724609375">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Text>
+                                          <FontAwesomeIcon fill="#e8cc32" glyphName="CAR" layoutX="50.0" layoutY="68.0" size="3em" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="449.0" layoutY="10.0" prefHeight="150.0" prefWidth="374.0" styleClass="nav-form" stylesheets="@Dashboard.css">
+                                       <children>
+                                          <Text fill="WHITE" layoutX="258.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="customer_dashBalance" fill="WHITE" layoutX="222.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.00" textAlignment="RIGHT" wrappingWidth="131.724609375">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Text>
+                                          <FontAwesomeIcon fill="#e8cc32" glyphName="MONEY" layoutX="47.0" layoutY="62.0" size="3em" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="14.0" layoutY="204.0" prefHeight="442.0" prefWidth="836.0" stylesheets="@Dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="14.0" layoutY="8.0" prefHeight="421.0" prefWidth="430.0" stylesheets="@Dashboard.css">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="white-bg" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="455.0" layoutY="8.0" prefHeight="421.0" prefWidth="368.0" stylesheets="@Dashboard.css">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="white-bg" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="rentCar_form" layoutX="59.0" layoutY="30.0" prefHeight="655.0" prefWidth="863.0" stylesheets="@Dashboard.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="262.0" prefWidth="836.0" stylesheets="@Dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Text layoutX="26.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car ID:">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <ComboBox fx:id="customer_rent_carID" layoutX="162.0" layoutY="30.0" onAction="#rentCarShowList" prefHeight="40.0" prefWidth="200.0" promptText="Select a Car" styleClass="textfield" stylesheets="@Dashboard.css" />
+                                    <DatePicker fx:id="customer_rent_dateRented" layoutX="163.0" layoutY="95.0" prefHeight="40.0" promptText="Pick a date" styleClass="textfield" stylesheets="@Dashboard.css" />
+                                    <DatePicker fx:id="customer_rent_dateReturned" layoutX="163.0" layoutY="157.0" onAction="#rentDisplayNewBalance" prefHeight="40.0" promptText="Pick a date" styleClass="textfield" stylesheets="@Dashboard.css" />
+                                    <Text layoutX="26.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent Date:">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="26.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Date:">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="418.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Balance:">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="418.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost total:">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="customer_currentBalance" layoutX="595.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.00" textAlignment="RIGHT" wrappingWidth="101.255859375">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="customer_rentAmount" layoutX="591.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.00" textAlignment="RIGHT" wrappingWidth="105.255859375">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="418.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Balance:">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="customer_newBalance" layoutX="603.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.00" textAlignment="RIGHT" wrappingWidth="94.255859375">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Line endX="84.0" layoutX="617.0" layoutY="118.0" startX="-196.0" />
+                                    <Button fx:id="customer_rent_confirm" layoutX="608.0" layoutY="197.0" mnemonicParsing="false" onAction="#payRent" prefHeight="41.0" prefWidth="110.0" styleClass="insert-btn" stylesheets="@Dashboard.css" text="Confirm">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="14.0" layoutY="292.0" prefHeight="349.0" prefWidth="836.0" stylesheets="@Dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="customer_rent_tableView" layoutX="11.0" layoutY="55.0" onSort="#rentCarShowListData" prefHeight="268.0" prefWidth="818.0">
+                                       <columns>
+                                          <TableColumn fx:id="customer_col_carID" prefWidth="165.0" text="Car ID" />
+                                          <TableColumn fx:id="customer_col_Brand" prefWidth="152.0" text="Brand" />
+                                          <TableColumn fx:id="customer_col_Model" prefWidth="132.0" text="Model" />
+                                          <TableColumn fx:id="customer_col_Price" prefWidth="165.0" text="Price($)" />
+                                          <TableColumn fx:id="customer_col_Status" prefWidth="202.0" text="Status" />
+                                       </columns>
+                                    </TableView>
+                                    <Text layoutX="17.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Cars:">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="recharge_form" layoutX="239.0" layoutY="164.0" prefHeight="655.0" prefWidth="860.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="633.0" prefWidth="837.0" stylesheets="@Dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Text layoutX="177.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Balance:" wrappingWidth="216.5234375">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="177.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recharge Amount:" wrappingWidth="257.5234375">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="customer_recharge_rechargeAmount" alignment="CENTER_RIGHT" layoutX="435.0" layoutY="112.0" prefHeight="40.0" prefWidth="200.0" promptText="\$0.00">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text fx:id="customer_recharge_currentBalance" layoutX="435.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$0.00" textAlignment="RIGHT" wrappingWidth="199.70703125">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Text>
+                                    <Button fx:id="customer_doRechargeBtn" layoutX="539.0" layoutY="186.0" mnemonicParsing="false" onAction="#doRecharge" prefHeight="41.0" prefWidth="96.0" styleClass="insert-btn" stylesheets="@Dashboard.css" text="Recharge">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
