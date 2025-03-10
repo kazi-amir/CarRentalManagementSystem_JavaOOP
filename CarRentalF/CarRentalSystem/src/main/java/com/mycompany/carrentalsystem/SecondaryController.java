@@ -106,7 +106,11 @@ public class SecondaryController {
     private Connection connect;
     private PreparedStatement prepare;
     private ResultSet result;
-    private Statement statement;  
+    private Statement statement;
+    
+//    private Connection connect2;
+//    private PreparedStatement prepare2;
+//    private ResultSet result2;
     
     private String[] genderList = {"Male", "Female"};
     public void userGender() {
@@ -119,15 +123,26 @@ public class SecondaryController {
         register_gender.setItems(listData);
     }
     
-    public void addNewUser() throws IOException{
-        
-        String sql = "INSERT INTO customer (firstName, lastName, username, password, email, gender, mobile, address) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public void addNewUser() throws IOException, SQLException{
+        String sq2 = "SELECT customerid FROM customer";
+        connect = database.connectDB();
+        int totalcustomer = 0;
+        try{
+            prepare = connect.prepareStatement(sq2);
+            result = prepare.executeQuery();
+            while(result.next()){
+                totalcustomer++;
+            }
+        }catch(SQLException e){
+            System.out.println("error paisi reh");
+        }
+        totalcustomer += 1;
+        String sql = "INSERT INTO customer (customerid, firstName, lastName, username, password, email, gender, mobile, address) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         connect = database.connectDB();
         
         try{
-            
             Alert alert;
             if(register_fname.getText().isEmpty() 
                     || register_lname.getText().isEmpty()
@@ -146,14 +161,15 @@ public class SecondaryController {
                 alert.showAndWait();
             }else{
                 prepare = connect.prepareStatement(sql);
-                prepare.setString(1, register_fname.getText());
-                prepare.setString(2, register_lname.getText());
-                prepare.setString(3, register_username.getText());
-                prepare.setString(4, register_password.getText());
-                prepare.setString(5, register_email.getText());
-                prepare.setString(6,  (String)register_gender.getSelectionModel().getSelectedItem());
-                prepare.setString(7, register_mobile.getText());
-                prepare.setString(8, register_address.getText());
+                prepare.setString(1, Integer.toString(totalcustomer));
+                prepare.setString(2, register_fname.getText());
+                prepare.setString(3, register_lname.getText());
+                prepare.setString(4, register_username.getText());
+                prepare.setString(5, register_password.getText());
+                prepare.setString(6, register_email.getText());
+                prepare.setString(7,  (String)register_gender.getSelectionModel().getSelectedItem());
+                prepare.setString(8, register_mobile.getText());
+                prepare.setString(9, register_address.getText());
                 
                 prepare.executeUpdate();
                 

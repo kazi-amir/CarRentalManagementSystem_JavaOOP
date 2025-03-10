@@ -5,7 +5,7 @@ module com.mycompany.carrentalsystem {
 
     opens com.mycompany.carrentalsystem to javafx.fxml;
     exports com.mycompany.carrentalsystem;
-    requires mysql.connector.java;
+    requires mysql.connector.j;
     requires javafx.base;
     requires javafx.graphics;
     requires java.base;
