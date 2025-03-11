@@ -1,0 +1,32 @@
+-- CarRental
+
+-- Admin Table
+CREATE TABLE admin (
+    id INT PRIMARY KEY NOT NULL , 
+    username VARCHAR(100) NOT NULL ,
+    password VARCHAR(100) NOT NULL ,
+    age INT NOT NULL 
+);
+
+INSERT INTO admin VALUES 
+    (1,'kazi_amir','kazi_amir',21),
+    (1,'ujmoushi','ujmoushi',22),
+    (1,'jfmim','jfmim',22)
+;
+
+-- customer table
+CREATE TABLE customer (
+	customerid INT PRIMARY KEY NOT NULL , 
+	firstName VARCHAR(50) NOT NULL , 
+	lastName VARCHAR(50) NOT NULL , 
+	username VARCHAR(50) NOT NULL , 
+	password VARCHAR(50) NOT NULL ,
+	email VARCHAR(50) NOT NULL , 
+	gender VARCHAR(50) NOT NULL , 
+	mobile VARCHAR(50) NOT NULL , 
+	address VARCHAR(50) NOT NULL 
+);
+
+INSERT INTO customer VALUES ('1','kazi','amir','kaziamir','kaziamir','amir@mail.com','male','034526731','DIU');
+
+-- cardata table
