@@ -39,3 +39,4 @@ CREATE TABLE car (
 	status VARCHAR(20),
 	date SYSDATE
 );
+Hello
