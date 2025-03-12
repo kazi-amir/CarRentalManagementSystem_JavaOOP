@@ -222,7 +222,7 @@ public class customerDashController {
         String sql = "SELECT * FROM car";
         
         connect  = database.connectDB();
-        
+        availableCarsToRent = 0;
         try{            
             prepare = connect.prepareStatement(sql);
             result = prepare.executeQuery();
@@ -433,7 +433,7 @@ public class customerDashController {
     }
 
     public void switchForm(ActionEvent event){
-
+        availableCarsToRent = 0;
         if(event.getSource() == customer_dashboardBtn){
             dashboard_form.setVisible(true);
             rentCar_form.setVisible(false);
@@ -455,6 +455,24 @@ public class customerDashController {
 //            customer_rentCarBtn.setStyle("-fx-background-color: linear-gradient(to bottom right, #727272, #dadada");
 //            customer_rechargeBtn.setStyle("-fx-background-color: transparent");
             
+            String sql = "SELECT * FROM car";
+        
+            connect  = database.connectDB();
+            availableCarsToRent = 0;
+            try{            
+                prepare = connect.prepareStatement(sql);
+                result = prepare.executeQuery();
+
+                while(result.next()){
+
+                    if((result.getString("status").equals("Available"))){
+                        availableCarsToRent++;
+                    }
+                }
+                customer_dashAvailableCar.setText(String.valueOf(availableCarsToRent));
+
+            }catch(Exception e){e.printStackTrace();}
+
             rentCarShowListData();
             rentDisplayTotalBalance();
             rentCarShowList();
@@ -500,6 +518,25 @@ public class customerDashController {
         rentCarShowListData();
         rentDisplayTotalBalance();
         rentCarShowList();
+        
+        String sql = "SELECT * FROM car";
+
+        connect  = database.connectDB();
+        availableCarsToRent = 0;
+        try{            
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+
+            while(result.next()){
+
+                if((result.getString("status").equals("Available"))){
+                    availableCarsToRent++;
+                }
+            }
+            customer_dashAvailableCar.setText(String.valueOf(availableCarsToRent));
+
+        }catch(Exception e){e.printStackTrace();}
+
         customer_dashAvailableCar.setText(String.valueOf(availableCarsToRent));
         
     }
