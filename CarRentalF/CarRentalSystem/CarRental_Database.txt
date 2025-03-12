@@ -31,4 +31,11 @@ INSERT INTO customer VALUES ('1','kazi','amir','kaziamir','kaziamir','amir@mail.
 
 -- cardata table
 
-Test pull here. Hi, Hello
+CREATE TABLE car (
+	car_id VARCHAR(20) PRIMARY KEY,
+	brand VARCHAR(20),
+	model VARCHAR(20),
+	price double,
+	status VARCHAR(20),
+	date SYSDATE
+);
